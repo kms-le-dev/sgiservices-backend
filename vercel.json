@@ -1,0 +1,22 @@
+{
+  "buildCommand": "composer install && npm install",
+  "devCommand": "php artisan serve",
+  "framework": "laravel",
+  "outputDirectory": "public",
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false"
+  },
+  "regions": ["cdg1"],
+  "functions": {
+    "api/index.php": {
+      "runtime": "php-8.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php"
+    }
+  ]
+}

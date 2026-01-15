@@ -34,12 +34,8 @@ class Service extends Model
 		if (preg_match('#^https?://#i', $value)) {
 			return $value;
 		}
-		// sinon construire l'URL à partir du disque "public" afin d'avoir toujours une URL absolue valide
-		try {
-			return Storage::disk('public')->url($value);
-		} catch (\Throwable $e) {
-			// fallback: utiliser helper url() si Storage échoue
-			return url($value);
-		}
+		// Construire l'URL à partir de APP_URL pour la compatibilité production
+		$basePath = rtrim(config('app.url'), '/');
+		return $basePath . '/storage/' . ltrim($value, '/');
 	}
 }

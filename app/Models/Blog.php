@@ -32,10 +32,8 @@ class Blog extends Model
         if (preg_match('#^https?://#i', $value)) {
             return $value;
         }
-        try {
-            return \Illuminate\Support\Facades\Storage::disk('public')->url($value);
-        } catch (\Throwable $e) {
-            return url($value);
-        }
+        // S'assurer que c'est un chemin relatif et le convertir en URL publique
+        $basePath = rtrim(config('app.url'), '/');
+        return $basePath . '/storage/' . ltrim($value, '/');
     }
 }
