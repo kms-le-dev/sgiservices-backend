@@ -1,3 +1,18 @@
+## Astuce Windows : affichage des images
+
+Si les images uploadées ne s'affichent pas en local, lancez ce script après chaque (re)démarrage ou clonage du projet :
+
+```bat
+copy_storage.bat
+```
+
+Cela copie les images uploadées dans le dossier public pour que Laravel puisse les servir via `/storage/`.
+
+Si vous êtes sous Linux/WSL, privilégiez la commande Laravel classique :
+
+```
+php artisan storage:link
+```
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

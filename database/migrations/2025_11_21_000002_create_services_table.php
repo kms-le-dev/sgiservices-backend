@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('category')->index(); // immobilier, imprimerie, fourniture informatique, divers
+            $table->string('category')->index(); // immobilier, imprimerie, Import - Export, divers
             $table->decimal('price', 10, 2)->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
